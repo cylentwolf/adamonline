@@ -1,0 +1,380 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="interface.css" />
+    <link rel="stylesheet" href="https://unpkg.com/buefy@0.8.8/dist/buefy.min.css">
+    <link rel="stylesheet" type="text/css" href="evolve.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/interface.js"></script>
+    <title>Adam Online</title>
+</head>
+
+<body>
+    <div id="topBar" class="topBar">
+        Testing pre-alpha
+    </div>
+
+    <div id="main" class="main">
+        <div class="columns is-gapless">
+            <div class="column is-one-quarter">
+                <h5>
+                    <div class="tooltip">
+                        Space Station (Level 1)
+                </h5>
+                <h6>Ships</h6>
+                Command and Control:<span id="command">0/5</span> <br>
+                mining drones:<span id="miningdrones">0</span><br>
+                <hr>
+                <div id="resources" class="resources">
+                    <h6>Resources:</h6>
+                    Veldspar:<span id="veldspar">0</span> <br />
+                    <div class="low">Scordite:<span id="Scordite">0</span> <br /></div>
+                    <div class="low">Pyroxeres:<span id="Pyroxeres">0</span> <br /></div>
+                    <div class="low">Plagioclase:<span id="Plagioclase">0</span> <br /></div>
+                    <div class="mid" style="display:none;">Omber:<span id="Omber">0</span> <br />            </div>
+                    <div class="mid" style="display:none;">Omber:<span id="Omber">0</span> <br />            </div>
+                    <div class="mid" style="display:none;">Kernite:<span id="Kernite">0</span> <br />            </div>
+                    <div class="mid" style="display:none;">Jaspet:<span id="Jaspet">0</span> <br />            </div>
+                    <div class="mid" style="display:none;">Hemorphite:<span id="Hemorphite">0</span> <br />            </div>
+                    <div class="mid" style="display:none;">Hedbergite:<span id="Hedbergite">0</span> <br />            </div>
+                    <div class="high" style="display:none;">Gneiss:<span id="Gneiss">0</span> <br /></div>
+                    <div class="high" style="display:none;">Dark Ochre:<span id="DarkOchre">0</span> <br /></div>
+                    <div class="high" style="display:none;">Spodumain:<span id="Spodumain">0</span> <br /></div>
+                    <div class="high" style="display:none;">Crokite:<span id="Crokite">0</span> <br /></div>
+                    <div class="elite" style="display:none;">Arkonor:<span id="Arkonor">0</span> <br /></div>
+                    <div class="elite" style="display:none;">Bistot:<span id="Bistot">0</span> <br /></div>
+                    <div class="elite" style="display:none;">Mercoxit:<span id="Mercoxit">0</span> <br /></div>
+
+                    <br />
+                    Tritanium:<span id="tritanium">0</span><br />
+                    Pyerite	:<span id="Pyerite">0</span><br />
+                    Mexallon	:<span id="Mexallon">0</span><br />
+                    Isogen	:<span id="Isogen">0</span><br />
+                    Nocxium	:<span id="Nocxium">0</span><br />
+                    Megacyte	:<span id="Megacyte">0</span><br />
+                    Zydrine	:<span id="Zydrine">0</span><br />
+                    Morphite:<span id="Morphite">0</span><br />
+                </div>
+
+
+            </div>
+            <div id="tabs" class="column is-half">
+
+                <div class="w3-bar w3-black">
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Space')">Local Space</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Station')">Space
+                        Station</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'AssemblyBay')">Assembly</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'ShipBay')">Ships</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Scanner')">Scanner</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'JumpDrive')">Jump
+                        Drive</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'WarpDrive')">Warp Drive</button>
+                        
+                </div>
+                <div id="Space" class="tab">
+                    <div class="grid-container">
+                        <div class="card">
+                            <div class="card-header bg-transparent border-success">
+                                <h5 class="card-title"><b>Space Station Local</b></h5>
+                            </div>
+                            <div class="card-body">
+                                
+                                Assign Transport <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-1</b></h5>
+                                <p class="card-text">Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-2</b></h5>
+                                <p>Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-3</b></h5>
+                                <p>Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-4</b></h5>
+                                <p>Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-5</b></h5>
+                                <p>Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-6</b></h5>
+                                <p>Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Alpha-7</b></h5>
+                                <p>Sec: 1.0</p>
+                                Asteroid Belt (V) <button type="button"
+                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
+                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Last scanned 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Station" class="tab" style="display:none">
+                    <div class="grid-container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Processing</div>
+                                Level: 1<br><button type="button" onclick="processClick('veldspar')">Process
+                                    Veldspar</button>
+                            </div>
+
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">Upgrade Proccessing Plant</div>
+                                Level: 1<br><button type="button" onclick="processClick('veldspar')">Process
+                                    Veldspar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="AssemblyBay" class="tab" style="display:none">
+                    <h4>Shipyard (level 1)</h4>
+                    Mining Drones:<span id="numDrones">0</span> &nbsp;&nbsp;<div class="tooltip">
+                        <button type="button" onclick="makeMiningDrone(1)">Build Drone</button>
+                        <span class="tooltiptext">Basic Mining Drone requires 10 tritanium</span>
+                    </div><br />
+
+                </div>
+                <div id="ShipBays" class="tab" style="display:none">
+                    <h4>Mining Vessels (to get that great minerals)</h4>
+                    <button type="button" onClick="makeMiningDrone(1)">Build Mining Drone</button>
+
+                    <br />
+                    <h4>Military Vessels (move into your next level and hold them)</h4>
+                    <button type="button" onClick="makefrigate(1)">Build frigate</button>
+                    <br />
+                    <button type="button" onClick="makeCruiser(1)">Build cruiser</button>
+                    <br />
+                    <button type="button" onClick="makeBattleCruiser(1)">Build battle cruiser</button>
+                    <br />
+                    <button type="button" onClick="makeBattleShip(1)">Build battleship</button>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    Defenses per sector<br />
+                    <br />
+                    <button type="button" onclick="craftGear(1)">Construct Refinery (increases mining out put in the
+                        sector)</button>
+                    <br />
+                    <button type="button" onclick="craftGear(1)">Construct Defense Station (makes it harder to take over
+                        sector)</button>
+                    <br />
+
+                </div>
+                <div id="Scanner" class="tab" style="display:none;">
+                    <h5>Scanning for new asteroids or threats</h5>
+                    <button type="button" onclick="Scan('Alpha')">Scan Alpha</button>
+                </div>
+                <div id="JumpDrive" class="tab" style="display:none;">
+                    <h3>Repair your Jump Drive to jump to Bravo Sector
+                        Requires: 10000 tritanium
+                    </h3>
+                </div>
+                <div id="WarpDrive" class="tab" style="display:none;">
+                    <h3>Repair your Warp Drive to Reset the game in another run.  You can harden your electronics before you warp to keep them safe from the WARP EMP.
+                        Your Harden Points is: 0
+                    </h3>
+                </div>
+            </div>
+            <div class="column is-one-quarter">
+                
+
+            <div id="sideQueue">What would go here?<br>  How are we prestiging? <br> computer control?  Base computer control? Storage capacity?
+so maybe C3.  so you get more c3 as you reset but why reset?  what could help you there?  what do you get to pick?  Better items to start with?  
+better bays?
+better manufacturing? Better defenses?
+harden the level of things so that next start you start out better.  basically gives bonuses to levels of things.
+i.e. the level is 0 but acts like 1 etc.
+            </div>
+        </div>
+    </div>
+    <div class="promoBar"><span class="left">
+            <h1 class="has-text-warning">Adam Online by <span class="has-text-success">cylentwolf</span></h1>
+        </span><span class="right">
+            <h2 class="is-sr-only">External Links</h2> NONE
+        </span></div>
+</body>
+<footer>
+<div>
+    <h6>todos</h6>
+    <ol>
+
+        <li> Advance to different galaxies
+            keep tech and x number of ships based on Wormhole Teleporter construction and what level you can send
+            though.
+            resets everything
+        </li>
+        <li>
+            Alpha through all greek letters
+
+            alpha = starts
+            beta =
+            Gamma =
+            Delta =
+            episolon =
+            zeta =
+            êta x 8
+            thêta x 16
+            iota x 32
+            kappa x 64
+            lambda x 128
+            mu x 256
+            nu x 512
+            xi x 1024
+            omikron x 2048
+            pi x 4096
+            rho x 8192
+            sigma x 16384
+            tau x 32768
+            upsilon x 65536
+            phi x 313072
+            chi x 262144
+            psi x 524288
+            omega x 1048576
+            at omega - game starts going pvp and harder pve</li>
+    </ol>
+    
+        Concepts
+        Assembly bay
+        Scanner to find locations
+        Research bay
+        Teleportation bay to get new crewmen
+        Training bay to train officers
+        Processing bay process basic ore
+        Advanced Processing bay process adv ore
+        Exotic Processing bay
+        Power bay fusion
+        Warp bay -prestige lock and resets to desired level
+        Hydroponics Bay
+        Storage Bay
+        Station upgrades
+        Requires minerals</div>
+                        <div>
+                            Build Ships
+                            Scouts
+                            Frigates
+                            Destroyers
+                            Cruisers
+                            Battleships
+                            Carriers
+                            Small Cargo
+                            Medium Cargo
+                            Large Cargo
+                            Colossal Cargo
+                            Research
+                            All the things above
+                            Spy
+                            Scan Planets
+                            Scan Galaxies
+                            Scan Fleets
+                        </div>
+                        <div>
+                            alpha - basic ore
+                            beta - basic ore
+                            gamma - basic ore
+                            delta - complex ore
+                            epsilon - complex ore
+                            zêta - complexore
+                            êta
+                            thêta
+                            iota
+                            kappa
+                            lambda
+                            mu
+                            nu
+                            xi
+                            omikron
+                            pi
+                            rho
+                            sigma
+                            tau
+                            upsilon
+                            phi
+                            chi
+                            psi
+                            omega
+                        </div>
+        
+                    </div>
+    <br>
+    <br>copyright 2018 - cylentware.com
+</footer>
+
+</html>
