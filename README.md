@@ -1,2 +1,2 @@
 # Adam Online
-Eve based incremental game
+Eve inspired incremental game
