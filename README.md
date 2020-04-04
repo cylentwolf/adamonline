@@ -1,2 +1,2 @@
-# adamonline.github.io
+# Adam Online
 Eve based incremental game
