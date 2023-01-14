@@ -4,7 +4,7 @@ var stationLevel = 1;
 var veldspar = 0;
 var veldsparEfficiency = 0.1;
 var basicMine = 0;
-var tritanium = 0;
+var tritanium = 10;
 var pyerite = 0;
 var mexMine = 0;
 var zydrine = 0;
@@ -18,6 +18,11 @@ var numDrones = 0;
 var smelterStoneCost = 5;
 var counter = 0;
 var autoVeldspar = 0;
+var maxCommand = 5;
+var command =0;
+var alpha1 = 0;
+var alpha2 = 0;
+var alpha3 = 0;
 
 
 function oreClick(oreType, amt) {
@@ -46,21 +51,29 @@ function processClick(oreType) {
 function assignDrone(oreType, Location) {
     if (numDrones > 0)
       numDrones -= 1;
-    if (Location == 'Alpha')
+    if (Location == 'Alpha-1')
     {
       if (oreType == 'veldspar')
         autoVeldspar += 1;
+        alpha1++;
     }
   
 }
 function makeMiningDrone(amt) {
     if (tritanium >= 5 * amt)
       tritanium -= 5*amt;
-    if (numDrones < 5 && amt < 5)
+    if (numDrones <= maxCommand && amt+command <= maxCommand) {
       numDrones += amt;
+      command += amt;
+    }
     
+    document.getElementById("command").innerHTML = command + '/' + maxCommand;
     document.getElementById("tritanium").innerHTML = tritanium;
-    document.getElementById("drones").innerHTML = numDrones;
+    document.getElementById("miningdrones").innerHTML = numDrones;
+    if (numDrones > 0)
+    {
+      document.getElementById("assignDroneA1").removeAttribute("style");
+    }
 };
 
 function basicClick(amt) {
@@ -165,6 +178,13 @@ window.setInterval(function(){
    
     if (numDrones > 0) // check to ensure that there are unasssigned drones to be assigned.
       document.getElementById('assignDrone').style.display = "block"; 
+
+    if (alpha1 > 0)  
+      oreClick("veldspar",alpha1);
+    if (alpha2 > 0)  
+      oreClick("veldspar",alpha2);
+    if (alpha2 > 0)  
+      oreClick("veldspar",alpha3);
     
 
     if (counter % 5 == 0)

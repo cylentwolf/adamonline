@@ -23,18 +23,31 @@
             <div class="column is-one-quarter">
                 <h5>
                     <div class="tooltip">
+                        <span class="tooltiptext">Tooltip text</span>
                         Space Station (Level 0)
                 </h5>
                 <h6>Ships</h6>
                 Command and Control:<span id="command">0/5</span> <br>
-                mining drones:<span id="miningdrones">0</span><br>
+                basic mining drones:<span id="miningdrones">0</span><button id="buildDrone" type="button"
+                onclick="makeMiningDrone(1);">+</button><br>
                 <hr>
                 <div id="resources" class="resources">
                     <h6>Resources:</h6>
-                    Veldspar:<span id="veldspar">0</span> <br />
-                    <div class="low">Scordite:<span id="Scordite">0</span> <br /></div>
+                    <div class="low">Veldspar:<span id="veldspar">0</span><button id="veldsparmine"  onclick="oreClick('veldspar',1)">mine</button> <br /></div>
+                    <div class="low">Veldspar Processing Level:<span id="veldsparProcessing">1</span>
+                        <button id="veldsparProcess"  onclick="processClick('veldspar')">Manual</button> <br /></div>
+                    <div class="low">Scordite:<span id="Scordite">0</span><div class="tooltip"><span class="tooltiptext">scan for more asteroid belts with Scordite</span><button id="scorditeMining" disabled  onclick="oreClick('scordite',1)">mine</button> <br /></div></div>
+                    <div class="low">Scordite Processing Level:<span id="scorditeProcessing">1</span>
+                        <button id="scorditeProcess"  onclick="processClick('scordite')">Manual</button> <br /></div>
+                    
                     <div class="low">Pyroxeres:<span id="Pyroxeres">0</span> <br /></div>
+                    <div class="low">Pyroxeres Processing Level:<span id="veldsparProcessing">1</span>
+                        <button id="veldsparProcessing"  onclick="processClick('veldspar')">Manual</button> <br /></div>
+                    
                     <div class="low">Plagioclase:<span id="Plagioclase">0</span> <br /></div>
+                    <div class="low">Veldspar Processing Level:<span id="veldsparProcessing">1</span>
+                        <button id="veldsparProcessing"  onclick="processClick('veldspar')">Manual</button> <br /></div>
+                    
                     <div class="mid" style="display:none;">Omber:<span id="Omber">0</span> <br />            </div>
                     <div class="mid" style="display:none;">Omber:<span id="Omber">0</span> <br />            </div>
                     <div class="mid" style="display:none;">Kernite:<span id="Kernite">0</span> <br />            </div>
@@ -52,14 +65,14 @@
                     <br />
                     Tritanium:<span id="tritanium">0</span><br />
                     Pyerite	:<span id="Pyerite">0</span><br />
-                    Mexallon	:<span id="Mexallon">0</span><br />
-                    Isogen	:<span id="Isogen">0</span><br />
-                    Nocxium	:<span id="Nocxium">0</span><br />
-                    Megacyte	:<span id="Megacyte">0</span><br />
-                    Zydrine	:<span id="Zydrine">0</span><br />
-                    Morphite:<span id="Morphite">0</span><br />
-                </div>
-
+                    <div class="mid" style="display:none;">Mexallon	:<span id="Mexallon">0</span><br /></div>
+                    <div class="mid" style="display:none;">Isogen	:<span id="Isogen">0</span><br /></div>
+                    <div class="mid" style="display:none;">Nocxium	:<span id="Nocxium">0</span><br /></div>
+                    <div class="mid" style="display:none;">Megacyte	:<span id="Megacyte">0</span><br /></div>
+                    <div class="mid" style="display:none;">Zydrine	:<span id="Zydrine">0</span><br /></div>
+                    <div class="mid" style="display:none;"> Morphite:<span id="Morphite">0</span><br /></div>
+                
+</div>
 
             </div>
             <div id="tabs" class="column is-half">
@@ -84,7 +97,7 @@
                             </div>
                             <div class="card-body">
                                 
-                                Assign Defense (nothing to assign) <button type="button" style="display:none;"
+                                Assign Defense drones <button type="button" style="display:none;"
                                     onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
                                     style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
                             </div>
@@ -96,9 +109,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><b>Alpha-1</b></h5>
                                 <p class="card-text">Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                                Asteroid Belt (Veldspar)
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">Last scanned 3 mins ago</small>
@@ -108,9 +119,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><b>Alpha-2</b></h5>
                                 <p>Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                                Asteroid Belt (Velspar)
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">Last scanned 3 mins ago</small>
@@ -120,64 +129,13 @@
                             <div class="card-body">
                                 <h5 class="card-title"><b>Alpha-3</b></h5>
                                 <p>Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
+                                Asteroid Belt (Veldspar)
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">Last scanned 3 mins ago</small>
                             </div>
                         </div>
                         
-                        
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Alpha-4</b></h5>
-                                <p>Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last scanned 3 mins ago</small>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Alpha-5</b></h5>
-                                <p>Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last scanned 3 mins ago</small>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Alpha-6</b></h5>
-                                <p>Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last scanned 3 mins ago</small>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Alpha-7</b></h5>
-                                <p>Sec: 1.0</p>
-                                Asteroid Belt (V) <button type="button"
-                                    onclick="oreClick('veldspar',1)">AMD</button><button id="assignDrone" type="button"
-                                    style="display:none" onclick="assignDrone('veldspar')">+Drone</button>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Last scanned 3 mins ago</small>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -297,6 +255,10 @@ i.e. the level is 0 but acts like 1 etc.
 <div>
     <h6>todos</h6>
     <ol>
+        <li>Simplify completely.  no areas.  Just have list of stuff</li>
+        <li>have mining drones at the top with a +</li>
+        <li>have processing next to the rocks</li>
+        <li>with +1, Add Auto Processor +1 etc.</li>
 
         <li> Advance to different galaxies
             keep tech and x number of ships based on Wormhole Teleporter construction and what level you can send
